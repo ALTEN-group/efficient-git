@@ -13,8 +13,8 @@ They allow a git repository to get other repositories as subdirectories. Git sub
 ## Workflow
 
 If you want to launch a project on your local environment, clone the parent project (ie. the one with all the submodules inside).
-This repository downloaded all the other ones. You can now work on the service tou want by clicking the subdirectory of the service.
-You can also launch the project on your local environment by reading the doncumentation in the parent repository.
+The repository downloads the other ones, after that, you can work on the service you want by clicking the subdirectory of the service.
+You can also launch the project on your local environment by reading the documentation in the parent repository.
 
 When working with submodules, a common pattern of confusion is forgetting to push updates for remote users.
 When you commit changes to a service in the parent repository, don't forget to update the child repository as well.

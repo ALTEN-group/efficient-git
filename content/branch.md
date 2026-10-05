@@ -5,13 +5,13 @@ title: Branches
 - **master** | **main**: For production releases.
 - **develop**: For next release development.
 - Available branch prefixes for developers :
-  - **feat**: For new feature to develop. Or anything else which not fit into other prefixes below. 
+  - **feat**: For new feature to develop. Or anything else which do not fit into other prefixes below. 
   - **release**: When release cycle is over. Features ready to ship are kept here. Freeing develop branch for next cycle.
   - **fix**: For new bug to fix or hotfix required on master branch.
   - **doc**: To improve or update developer documentation.
   - **test**: To add or update unit tests or E2E tests.
 
-  Each branch must link to a work item in your ticketing system. Except for "release" which must link to a version of the application.
+Each branch must link to a work item in your ticketing system. Except for "release" which must link to a version of the application.
 
 ## Feature branch
 
@@ -25,6 +25,7 @@ When a feature is way behind develop because of a long development process, merg
 
 ```bash
 git checkout develop
+git pull
 git checkout -b feat/#245/csv-export
 ```
 
@@ -40,10 +41,11 @@ Once it's ready to ship, the release branch gets merged into master and tagged w
 
 Using a dedicated branch to prepare releases makes it possible for one team to polish the current release while another team continues working on features for the next release. It also creates well-defined phases of development.
 
-The release version name must follow the [Semantic versionning rules](https://dwtechs.github.io/efficient-git/semantic-versioning/)
+The release version name must follow the [Semantic versionning rules](../semantic-versioning/)
 
 ```bash
 git checkout develop
+git pull
 git checkout -b release/0.1.0
 ```
 
@@ -51,12 +53,13 @@ git checkout -b release/0.1.0
 
 From : **develop**
 
-Each new bug should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
+Each new bug fix should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
 
-When a bugfux is complete and tested, it gets merged back into develop. Bugfixes never interact directly with master.
+When a bug fix is complete and tested, it gets merged back into develop. Bugfixes never interact directly with master.
 
 ```bash
 git checkout develop
+git pull
 git checkout -b fix/#456/export-button-color
 ```
 
@@ -64,14 +67,15 @@ git checkout -b fix/#456/export-button-color
 
 From : **master**
 
-Used to quickly patch production releases.
+Used to quickly patch production critical issues.
 
-This is the only branch that should fork directly off of master. As soon as the fix is complete, it should be merged into both master and develop (or the current release branch), and master should be tagged with an updated version number.
+This is the only branch that should fork directly off of master. As soon as the fix is complete, it should be merged into master, develop and the current release branch if there is one. Then master should be tagged with an updated version number.
 
-Having a dedicated line of development for bug fixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle.
+Having a dedicated line of development for hotfixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle.
 
 ```bash
 git checkout master
+git pull
 git checkout -b fix/#344/wrong-email-regex
 ```
 
@@ -79,7 +83,7 @@ git checkout -b fix/#344/wrong-email-regex
 
 From : **develop**
 
-Useful technical debt reduction, ESlint/SonarQube fix,
+Technical debt reduction, linter/SonarQube/security improvements.
 
 Each refactor should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
 
@@ -87,6 +91,7 @@ When refactor is complete and tested, it gets merged back into develop. Tests ne
 
 ```bash
 git checkout develop
+git pull
 git checkout -b feat/#426/export-csv-class
 ```
 
@@ -96,13 +101,14 @@ From : **develop**
 
 Each documentation update should reside in its own branch, which can be pushed to the central repository for backup and collaboration.
 
-Doc branch is only for developer documentation in order to improve collabortation in the team.
+Doc branch is only for developer documentation in order to improve collaboration in the team.
 User documentation update has to be developed in a feature branch.
 
 When documentation is complete, it gets merged back into develop. Documentations never interact directly with master.
 
 ```bash
 git checkout develop
+git pull
 git checkout -b doc/#112/user-erd
 ```
 
@@ -116,6 +122,7 @@ When test is complete, it gets merged back into develop. Tests never interact di
 
 ```bash
 git checkout develop
+git pull
 git checkout -b test/#821/csv-export
 ```
 
@@ -129,5 +136,6 @@ When build is complete and tested, it gets merged back into develop. Builds neve
 
 ```bash
 git checkout develop
+git pull
 git checkout -b feat/#514/gitbranchvalidator
 ```

@@ -1,5 +1,5 @@
 ---
-title: tag
+title: Tag
 ---
 
 Git has the ability to tag specific points in a repository’s history.

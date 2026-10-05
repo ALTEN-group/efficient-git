@@ -1,12 +1,12 @@
 ---
-
+title: Merge
 ---
 
 Join two or more development histories together.
 
 ## Description
 
-Incorporate changes since the time their histories diverged from your branch into the main branch. This command is actually used by git pull to incorporate changes from another repository and can be used by hand to merge changes from one branch into another.
+Incorporates changes since the time their histories diverged from your branch into the main branch. This command is actually used by git pull to incorporate changes from another repository and can be used by hand to merge changes from one branch into another.
 
 ## Pre-merge checks
 
@@ -55,18 +55,18 @@ Fix conflicts if needed into your IDE
 
 ```bash
 git merge --continue
+git push
 ```
 
 Your branch is now up to date.
-If the application runs properly you can safely keep working on your branch
+If the application runs properly you can safely keep working on your branch.
 
-### merge into develop
+### Merge into develop
 
-You need to merge your working branch manually into "develop".
-**You don't.**
-**Only tech leads are allowed to merge directly into develop.** Please refer to "merge requests" 
+You don't merge your working branch into "develop" yourself.
+**Only tech leads are allowed to merge into develop.** Open a merge request using your Git application (GitLab / GitHub) instead. 
 
-{{< button relref="/tag" size="small" >}}Learn more about merge request{{< /button >}}
+{{< button relref="/teamwork" size="small" >}}Learn more about merge requests{{< /button >}}
 
 Tech lead will do the following : 
 
@@ -99,23 +99,26 @@ git pull
 ```
 
 ```bash
-git merge --no-ff <working-branch-name>
+git merge --squash <working-branch-name>
+git commit -m "<conventional-commit-message>"
 git push
 ```
+
+A squash merge only stages the changes, so you must commit before pushing.
 
 ### merge release into master
 
 This is the end of the sprint.
 Release branch is going to be released to the client.
 
-Again, **Only tech leads are allowed to merge into develop.** 
+Again, **Only tech leads are allowed to merge into master.** 
 
-#### Step 1 : Start by merging master into develop like this : 
+#### Step 1 : Start by merging master into release like this : 
 
 ```bash
 git checkout master
 git pull
-git checkout develop
+git checkout release
 git merge --no-ff master
 ```
 Fix conflicts if needed into your IDE
@@ -133,11 +136,14 @@ If the application runs properly you can safely merge release into master knowin
 
 ```bash
 git checkout master
-git merge --no-ff develop
+git merge --squash release
+git commit -m "<conventional-commit-message>"
 git push
 ```
 
-At this point you can tag master xith the updated version number. 
+A squash merge only stages the changes, so you must commit before pushing.
+
+At this point you can tag master with the updated version number. 
 
 {{< button relref="/tag" size="small" >}}Learn more about tagging{{< /button >}}
 

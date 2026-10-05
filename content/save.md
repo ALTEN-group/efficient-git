@@ -6,7 +6,7 @@ Git is not meant to be used as a backup device.
 
 But let's be pragmatic here as not every company has a proper way of backing up developers work every day.
 
-As said before the core function of Git is to save checkpoints. Thus, if used properly, Git is a poweful backup application for developers and can save you from losing several days of work in case of problem.
+As said before the core function of Git is to save checkpoints. Thus, if used properly, Git is a powerful backup application for developers and can save you from losing several days of work in case of problem.
 
 ## Overview
 
@@ -22,7 +22,7 @@ Note that you only need to do this if your current work is sufficiently started 
 You are leaving for the day and started to work on a new branch. Your job is not finished yet, nothing is working yet so an intermediate commit would not be right.
 It is then time to backup your work in case your computer does not start tomorrow morning.
 
-*This commands only work if it is the first time you are saving your work on this branch. If it is not the case please jump to step 3.*
+*These commands only work if it is the first time you are saving your work on this branch. If it is not the case please jump to step 4.*
 
 ```bash
 git status
@@ -31,23 +31,33 @@ git commit -m "WIP"
 git push
 ```
 
+or the short version if you added [aliases from this documentation](../alias)
+
+```bash
+git s
+git a .
+git c "WIP"
+git ph
+```
+
 Your work is safe now.
 
 
 ## Step 2: Retrieve your backup
 
-The day after you want to retrieve the same state as ealier.
-For this you have to reset your backup commit.
-
 If your computer died during the night and is not starting up anymore, you can pull your save to another computer and work as if nothing happened. The backup saved you from starting from scratch again.
 
-Hopefully, most of the time, you will not have any issue during the night. The next morning you then need to reset your commit on your local branch so you can keep seeing your modification in your IDE:
+Hopefully, most of the time, you will not have any issue during the night. You can work on your task as usual.
+
+## Step 3 (Optional): clean your branch on the remote repository
+
+The next morning you may want to reset your commit on your local branch so you can keep seeing your modifications in your IDE:
 
 ```bash
 git reset HEAD~1
 ```
 Now your backup commit is reset in the local repository. This also means your local branch diverged compared to the remote branch.
-Thus you want to get your remote banch up to date. To do so you need to pull the remote in order to revert it:
+Thus you want to get your remote branch up to date. To do so you need to pull the remote in order to revert it:
 
 ```bash
 git stash
@@ -59,13 +69,13 @@ git stash apply
 
 Now your "WIP" commit is reverted in the remote branch head but still exists in the remote as an older commit if needed.
 
-## Step 3: Save your work again after a previous backup
+## Step 4: Save your work again after a previous backup
 
 This is the end of the second day working on this feature.
 You want to backup again before leaving for the day.
 
 Repeat step 1.
 
-## Step 4: Finish your work
+## Step 5: Finish your work
 
-Once this feature is done. Commit following step 1 except for the commit message of course. Then create your merge request with the squash option checked because all these steps will create a commit for each backup.
+Once this feature is done, commit it and create your merge request with the squash option checked, because we only want to see one commit per user story in the development branch.

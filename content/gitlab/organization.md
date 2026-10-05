@@ -29,6 +29,7 @@ Projects are applications.
 
 The path for projects is of the form \<entity\>/project/\<city\>/\<client\>/\<precision\>/\<application\>
 
+- \<city\> is the name of the delivery center city
 - \<precision\> folder could be duplicated if needed (ie: \<precision1\>/\<precision2\>...). It is useful to give more details about the client. For example big companies with several entities.
 - Add a \<service\> folder at the end in case of mutli-repos application
 
