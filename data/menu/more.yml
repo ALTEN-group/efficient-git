@@ -1,7 +1,7 @@
 ---
 more:
   - name: "View Source"
-    ref: "https://alten-group.github.io/efficient-git"
+    ref: "https://github.com/ALTEN-group/efficient-git"
     external: true
     icon: "gdoc_github"
   # - name: Efficient web app architecture

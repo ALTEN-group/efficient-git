@@ -1,6 +1,6 @@
 ---
 header:
   - name: GitHub
-    ref: https://alten-group.github.io/efficient-git
+    ref: https://github.com/ALTEN-group/efficient-git
     icon: gdoc_github
     external: true
