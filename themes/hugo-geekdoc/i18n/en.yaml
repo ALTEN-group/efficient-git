@@ -35,7 +35,7 @@ posts_count:
 posts_tagged_with: All posts tagged with '{{ . }}'
 
 footer_build_with: >
-  Written by <a href="https://dwtechs.github.io/" class="gdoc-footer__link" target="_blank">DWTechs</a>
+  Written & maintained by <a href="https://www.alten.com/" class="gdoc-footer__link" target="_blank">ALTEN</a>
 footer_legal_notice: Legal Notice
 footer_privacy_policy: Privacy Policy
 footer_content_license_prefix: >
