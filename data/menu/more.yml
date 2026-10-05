@@ -1,22 +1,22 @@
 ---
 more:
   - name: "View Source"
-    ref: "https://github.com/DWTechs/efficient-git"
+    ref: "https://alten-group.github.io/efficient-git"
     external: true
     icon: "gdoc_github"
-  - name: Efficient web app architecture
-    ref: "/efficient-web-app-architecture/"
-    external: true
-    icon: "gdoc_star"
-  - name: Efficient Javascript
-    ref: "/efficient-javascript/"
-    external: true
-    icon: "gdoc_star"
-  - name: Efficient Angular
-    ref: "/efficient-angular/"
-    external: true
-    icon: "gdoc_star"
-  - name: Efficient Node
-    ref: "/efficient-node/"
-    external: true
-    icon: "gdoc_star"
+  # - name: Efficient web app architecture
+  #   ref: "/efficient-web-app-architecture/"
+  #   external: true
+  #   icon: "gdoc_star"
+  # - name: Efficient Javascript
+  #   ref: "/efficient-javascript/"
+  #   external: true
+  #   icon: "gdoc_star"
+  # - name: Efficient Angular
+  #   ref: "/efficient-angular/"
+  #   external: true
+  #   icon: "gdoc_star"
+  # - name: Efficient Node
+  #   ref: "/efficient-node/"
+  #   external: true
+  #   icon: "gdoc_star"

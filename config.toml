@@ -1,6 +1,6 @@
 languageCode = 'en-us'
 # baseURL = "http://localhost"
-baseURL = "https://dwtechs.github.io/efficient-git/"
+baseURL = "https://alten-group.github.io/efficient-git/"
 title = "Efficient-git"
 theme = "hugo-geekdoc"
 
